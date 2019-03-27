@@ -18,3 +18,11 @@ If using virtual environment, first run `workon snap-cleaner` to activate the ve
 - In cmd, run `python snap-cleaner.py`
 - Use `python snap-cleaner.py -h` for help with running with non-default arguments
   - e.g. `python snap-clenaer.py 100 200 -i test_images/bird.jpg -o new_bird.jpg`
+- Use `-s` flag to show image after run
+
+# Todo
+- Automatically detect location of the grey bar
+  - If ambiguous, option to choose which bar to remove
+- Find and use text remover
+- Handle the white lines
+  - maybe caused by jpeg compression?
