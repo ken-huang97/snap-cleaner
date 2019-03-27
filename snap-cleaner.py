@@ -9,7 +9,7 @@ def remove_rec(im, y1, y2, alpha):
     pixels = im.load()
     for i in range(im.size[0]):
         for j in range(y1, y2+1):
-            new_color = tuple([int(v/alpha) for v in pixels[i,j]])
+            new_color = tuple([int(v/(1-alpha)) for v in pixels[i,j]])
             pixels[i,j]=new_color
 
 def draw_rec(im, y1, y2):
@@ -60,17 +60,23 @@ def get_args():
         help="input image",
     )
     parser.add_argument(
-        "--alpha",
-        "-a",
-        default=0.4,
-        help="rectangle alpha",
-        type=float
-    )
-    parser.add_argument(
         "--out",
         "-o",
         default="stitched_out.jpg",
         help="output file"
+    )
+    parser.add_argument(
+        "--alpha",
+        "-a",
+        default=0.6,
+        help="rectangle alpha",
+        type=float
+    )
+    parser.add_argument(
+        "--show",
+        "-s",
+        help="open image",
+        action="store_true"
     )
 
     return parser.parse_args()
@@ -82,6 +88,7 @@ def main():
     out_name=args.out
     y1, y2 = args.y1, args.y2
     alpha = args.alpha
+    show_img = args.show
 
     if not os.path.isfile(img_name):
         sys.exit("File {} does not exist".format(img_name))
@@ -97,6 +104,9 @@ def main():
 
     print("Saving stitched before/after pic to " + out_name)
     stitched_im.save(out_name)
+
+    if show_img:
+        stitched_im.show()
 
 def snap_test():
     im = Image.open("snap_test.jpg").convert('RGBA')
