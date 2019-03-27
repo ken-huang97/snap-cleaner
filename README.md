@@ -1,11 +1,15 @@
 # snap-cleaner
 Remove grey label and text from snapchat photos
 
+If it says No module named 'PIL' you need to install the requirements
 ## Set up virtual environment
-### Windows:
-- If it says No module named 'PIL' you need to set up virtual environment and install the requirements
-  - If already set up, run `workon snap-cleaner` to activate the venv. Read the virtualenvwrapper-win link to learn more
-- Install https://pypi.org/project/virtualenvwrapper-win/
+Read [virtualenvwrapper-win](https://pypi.org/project/virtualenvwrapper-win/) to learn more.
+
+If using Jupyter, this will not apply.
+
+### Python on Windows:
+  - If already set up, run `workon snap-cleaner` to activate the venv. 
+- Install [virtualenvwrapper-win](https://pypi.org/project/virtualenvwrapper-win/)
 - run `mkvirtualenv snap-cleaner` in cmd
   - should now say (snap-cleaner) in every line of cmd
 - Download/clone the repo
